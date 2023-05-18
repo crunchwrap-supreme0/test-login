@@ -28,17 +28,20 @@
   </div>
   <button class="login" onclick="login()">Login</button>
   <div class="footer"><span>Signup</span><span>Forgot Password?</span></div>
+  <p id="generatedPassword"></p>
 </div>
 <!-- partial -->
 
 <script>
+  // Generate a random 5-character lowercase password at the opening of the website
+  var randomPassword = generateRandomPassword();
+  var generatedPasswordElement = document.getElementById("generatedPassword");
+  generatedPasswordElement.textContent = randomPassword;
+
   function login() {
     // Retrieve the input values
     var username = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-
-    // Generate a random 5-character lowercase password
-    var randomPassword = generateRandomPassword();
 
     // Check if the username and password are valid
     if (username === "root" && password === randomPassword) {
